@@ -1,5 +1,4 @@
 import 'package:apex/home_screen/constants.dart';
-import 'package:apex/model/model.dart';
 import 'package:apex/widgets/history_card.dart';
 import 'package:apex/widgets/navbar.dart';
 import 'package:flutter/material.dart';

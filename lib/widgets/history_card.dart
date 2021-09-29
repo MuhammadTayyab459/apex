@@ -1,3 +1,5 @@
+import 'package:apex/home_screen/model/model.dart';
+import 'package:apex/home_screen_2/model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,79 +10,99 @@ class HistoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
-      ),
-      child: (Column(
-        children: [
-          ListTile(
-              title: Text('Lamborghini',
-                  style: TextStyle(
-                      color: Color(0xff414141),
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.w600)),
-              subtitle: Text(
-                'Centenario',
-                style: TextStyle(
-                    color: Color(0xff838383),
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w400),
-              )),
-          SizedBox(height: 16.h),
-          Container(
-            color: Color(0xffF8EDDC),
-            width: 347.w,
-            child: Column(
-              children: [
-                CardTiles(
-                  icon: Icons.monetization_on_outlined,
-                  title: 'Arrival date',
-                  subtitle: '12 Sept 2021',
-                  color: Color(0xffF48129),
-                ),
-                CardTiles(
-                  icon: Icons.monetization_on_outlined,
-                  title: 'Promise date',
-                  subtitle: '15 Sept 2021',
-                  color: Color(0xffF48129),
-                ),
-                CardTiles(
-                  icon: Icons.monetization_on_outlined,
-                  title: 'Delivery date',
-                  subtitle: '15 Sept 2021',
-                  color: Color(0xffF48129),
-                ),
-                CardTiles(
-                  icon: Icons.monetization_on_outlined,
-                  title: 'Task',
-                  subtitle: 'Repair',
-                  color: Color(0xffF48129),
-                ),
-                CardTiles(
-                  icon: Icons.monetization_on_outlined,
-                  title: 'Status',
-                  subtitle: 'Repaired',
-                  color: Color(0xff0B6D09),
-                ),
-                CardTiles(
-                  icon: Icons.monetization_on_outlined,
-                  title: 'Cost',
-                  subtitle: '200 Aed',
-                  color: Color(0xffF48129),
-                ),
-                SizedBox(
-                  height: 21.h,
-                ),
-              ],
+    return Container(
+      height: 400.h,
+      child: ListView.builder(
+        itemCount: HomeScreen1CarData.data.length,
+        itemBuilder: (BuildContext context, int index) => Padding(
+          padding: const EdgeInsets.only(bottom: 30.0),
+          child: Card(
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
             ),
+            child: (Column(
+              children: [
+                Center(
+                  child: ListTile(
+                      title: Text(CarData.data[index].title,
+                          style: TextStyle(
+                              color: Color(0xff414141),
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.w600)),
+                      subtitle: Text(
+                        CarData.data[index].subtitle,
+                        style: TextStyle(
+                            color: Color(0xff838383),
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400),
+                      )),
+                ),
+                Container(
+                  color: Color(0xffF8EDDC),
+                  width: 347.w,
+                  child: Column(
+                    children: [
+                      CardTiles(
+                        icon: Icons.monetization_on_outlined,
+                        title: 'Arrival date',
+                        subtitle: HomeScreen1CarData
+                            .data[index].last![0].arrivaldate!,
+                        color: Color(0xffF48129),
+                      ),
+                      CardTiles(
+                        icon: Icons.monetization_on_outlined,
+                        title: 'Promise date',
+                        subtitle: HomeScreen1CarData
+                            .data[index].last![0].promisedate!,
+                        color: Color(0xffF48129),
+                      ),
+                      CardTiles(
+                        icon: Icons.monetization_on_outlined,
+                        title: 'Delivery date',
+                        subtitle: HomeScreen1CarData
+                            .data[index].last![0].deliverydate!,
+                        color: Color(0xffF48129),
+                      ),
+                      CardTiles(
+                        icon: Icons.monetization_on_outlined,
+                        title: 'Insurance',
+                        subtitle:
+                            HomeScreen1CarData.data[index].last![0].Insurance!,
+                        color: Color(0xffF48129),
+                      ),
+                      CardTiles(
+                        icon: Icons.monetization_on_outlined,
+                        title: 'Task',
+                        subtitle: HomeScreen1CarData.data[index].last![0].task!,
+                        color: Color(0xffF48129),
+                      ),
+                      CardTiles(
+                        icon: Icons.monetization_on_outlined,
+                        title: 'Status',
+                        subtitle:
+                            HomeScreen1CarData.data[index].last![0].status!,
+                        color: Color(0xffF48129),
+                      ),
+                      SizedBox(
+                        height: 21.h,
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Spacer(),
+                    CustomButton(
+                      tap: () => print('pressed'),
+                    ),
+                  ],
+                )
+              ],
+            )),
           ),
-          CustomButton(
-            tap: () => print('pressed'),
-          )
-        ],
-      )),
+        ),
+      ),
     );
   }
 }

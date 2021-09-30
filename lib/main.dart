@@ -1,4 +1,5 @@
 import 'package:apex/home_screen_2/home_screen2.dart';
+import 'package:apex/visit_detail/visit_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,6 +21,6 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(),
-            home: AppointmenScreen()));
+            home: VisitDetail()));
   }
 }

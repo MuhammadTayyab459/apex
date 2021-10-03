@@ -12,7 +12,7 @@ class CarinfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 271.h,
+      height: 273.h,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: CarData.data.length,

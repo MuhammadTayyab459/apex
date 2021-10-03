@@ -1,3 +1,4 @@
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 class PhoneButton extends StatelessWidget {
@@ -7,13 +8,26 @@ class PhoneButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomRight,
-      child: FloatingActionButton(
-        child: Image.asset('assets/images/phone.png'),
-        onPressed: () {},
-        backgroundColor: Color(0xffF48129),
-      ),
+    return Row(
+      children: [
+        ElevatedButton(
+            onPressed: () async {
+              await context.setLocale(Locale('en'));
+            },
+            child: Text('English')),
+        Spacer(),
+        ElevatedButton(
+            onPressed: () async {
+              await context.setLocale(Locale('ar'));
+            },
+            child: Text('العربية')),
+        Spacer(),
+        FloatingActionButton(
+          child: Image.asset('assets/images/phone.png'),
+          onPressed: () {},
+          backgroundColor: Color(0xffF48129),
+        ),
+      ],
     );
   }
 }
